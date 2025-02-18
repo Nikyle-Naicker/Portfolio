@@ -11,6 +11,7 @@ namespace Portfolio
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddSingleton<IProjectService, ProjectService>();
 
             var app = builder.Build();
 
