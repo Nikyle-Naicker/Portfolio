@@ -1,14 +1,28 @@
-﻿@page "/project"
+﻿@inject IProjectService _projectService
+@page "/project/{Title}"
+
 
 
 <PageTitle>Project</PageTitle>
 
 <div class="border mt-2 p-2">
     <div class="d-flex flex-column">
-        <h2></h2>
+        <h2>@project.Title</h2>
     </div>
 </div>
 
 
+@code
+{
+    [Parameter]
+    public string Title { get; set; }
 
+    Project project;
+    
+
+    protected override void OnInitialized()
+    {
+        project = _projectService.GetProjectByTitle(Title);
+    }
+}
 
