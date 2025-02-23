@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IProjectService _projectService;
+@inject ProtectedSessionStorage ProtectedSessionStore
 <PageTitle>Home</PageTitle>
 
 <div class="container-fluid ">
@@ -9,16 +10,27 @@
     </section>
     <section id="project-section" class="container-fluid w-100 flex-column " >
         <h3 class="text-center" >Projects</h3>
-        <div class="d-flex justify-content-evenly">
+        <div style="min-height: 75px;" class="d-flex col-auto overflow-y-scroll justify-content-evenly">
             @foreach(var project in projects)
             {
-                <div class="d-inline-block border ">
+                <a href="project/@project.Title">
+                <div class=" row-sm-4 overflow-auto d-inline-block border h " >
                     <h4>@project.Title</h4>
                     <img src="" />
                 </div>
+                </a>
             }
         </div>
     </section>
+    <section id="social-section">
+        <h3>Socials</h3>
+
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-solid fa-envelope"></i>
+        <i class="fa-solid fa-phone"></i>
+    </section>
+    
 </div>
 
 @code {
@@ -28,5 +40,7 @@
     {
         projects = _projectService.GetProjects().ToList();
     }
+
+   
 
 }
