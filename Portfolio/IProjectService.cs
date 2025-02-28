@@ -6,5 +6,6 @@ namespace Portfolio
     {
         public IEnumerable<Project> GetProjects();
         public Project GetProjectByTitle(string title);
+        public IEnumerable<ProjectImages> GetImages(int imageId);
     }
 }

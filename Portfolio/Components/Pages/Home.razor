@@ -8,27 +8,31 @@
         <h1 class=" text-center" >Hi, I am a Developer</h1>
         <h3 class=" text-center">And this is my development Portfolio</h3>
     </section>
-    <section id="project-section" class="container-fluid w-100 flex-column " >
-        <h3 class="text-center" >Projects</h3>
-        <div style="min-height: 75px;" class="d-flex col-auto overflow-y-scroll justify-content-evenly">
+    <section id="project-section" >
+        <h3 class="text-center border-bottom py-3" >Projects</h3>
+        <div class="container-fluid py-2">
+            <div class="row row-cols-auto ">
             @foreach(var project in projects)
             {
-                <a href="project/@project.Title">
-                <div class=" row-sm-4 overflow-auto d-inline-block border h " >
-                    <h4>@project.Title</h4>
-                    <img src="" />
+                <a class="link-dark link-hover" href="project/@project.Title">
+                <div style="width:200px; height: 150px;" class="d-block border my-2 p-3" >
+                    <img class="img-fluid ratio-1x1 mb-1" src="@project.ProjectThumbnail" alt="Project Thumbnail"/>
+                    <h5 class="text-center my-1 p-1 border-top">@project.Title</h5>
                 </div>
                 </a>
             }
+            </div>
         </div>
     </section>
     <section id="social-section">
-        <h3>Socials</h3>
-
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-solid fa-envelope"></i>
-        <i class="fa-solid fa-phone"></i>
+        <h3 class="text-center border-bottom py-3">Socials</h3>
+        <div style="min-height:75px;" class="container-fluid d-flex py-2 justify-content-evenly">
+            <a class="link-dark link-hover" href="https://linkedin.com/in/nikyle-naicker-ba679922a" target="_blank"><i class="fa-brands fa-linkedin fa-3x"></i></a>
+            <a class="link-dark link-hover" href="https://github.com/Nikyle-Naicker" target="_blank"> <i class="fa-brands fa-github fa-3x"></i> </a>
+            <a > <i class="fa-solid fa-envelope fa-3x"></i> </a>
+            <i class="fa-solid fa-phone fa-3x"></i>
+        </div>
+        
     </section>
     
 </div>

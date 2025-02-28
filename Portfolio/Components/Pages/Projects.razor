@@ -5,9 +5,54 @@
 
 <PageTitle>Project</PageTitle>
 
-<div class="border mt-2 p-2">
-    <div class="d-flex flex-column">
-        <h2>@project.Title</h2>
+<div class="border border-3 border-dark mx-6 my-2 p-4 d-flex flex-column">
+    <div class=" row justify-content-center">
+        <h2 class="text-center border-bottom border-2 border-dark py-4">@project.Title</h2>
+
+        <div id="carouselExampleCaptions" class="carousel carousel-dark slide w-75 my-3" data-bs-ride="carousel">
+            <div class="carousel-inner border">
+            @foreach(var projectimage in projectimages)
+            {
+                    <div class="carousel-item active">
+                        <img src="@projectimage.Source" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>@projectimage.ImageDescription</p>
+                        </div>
+                    </div>
+            }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container row border-top border-2 border-dark py-3">
+            <div class="d-block mw-100">
+                <h5 class="border-bottom border-dark w-25">Description</h5>
+                <p style="max-width: 90vw;" class="overflow-auto">@project.Description</p>
+                <h5 class="border-bottom border-dark w-25">Github Repository</h5>
+                <a href="@project.Github" target="_blank" class="link-dark link-hover">
+                    <p>@project.Github</p>
+                </a>
+                @if (project.Live_Link != "N/A")
+                {
+                    <h5 class="border-bottom border-dark w-25">Live Demo</h5>
+                    <a class="link-dark link-hover" href="@project.Live_Link" target="_blank" >
+                    <p>@project.Live_Link</p>
+                    </a>
+                }
+                @if(project.Note != "")
+                {
+                    <h5 class="border-bottom border-dark w-25">Note</h5>
+                    <p style="max-width: 90vw;" class="overflow-auto text-note">@project.Note</p>
+                }
+            </div>
+        </div>
     </div>
 </div>
 
@@ -15,14 +60,19 @@
 @code
 {
     [Parameter]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
     Project project;
-    
+    private IList<ProjectImages> projectimages { get; set; } = new List<ProjectImages>();
 
     protected override void OnInitialized()
     {
         project = _projectService.GetProjectByTitle(Title);
+        // if(project==null)
+        // {
+
+        // }
+        projectimages = _projectService.GetImages(project.ProjectImageId).ToList();
     }
 }
 
