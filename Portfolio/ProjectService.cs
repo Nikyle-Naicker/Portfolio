@@ -13,6 +13,7 @@ namespace Portfolio
             {
                  new Project(
                     "Finshark",
+                    "Created with a REACT frontend, .NET backend and an SQL database for data storage" +
                     "A stock app that allows users to register an account, search for, and view various stock options from Nasdaq(provided by FMP)," +
                     " the user can add the stock options to their portfolio and can comment on the selected stock.",
                     "/pictures/finshark/finsharkhome.png",
@@ -23,7 +24,8 @@ namespace Portfolio
                     
                  new Project(
                      "Dewey",
-                     "Library game",
+                     "Created using Windows Presentation Foundation (WPF).The application consists of two games designed for people learning the dewey decimal system. Game 1 allows users to sort callnumbers in ascending order. " +
+                     "Game 2 is a match the column game where users match the dewey class number to their correct description. Each game has their own difficulty selector.",
                      "/pictures/dewey/deweygamesort.png",
                      "",
                      "https://github.com/Nikyle-Naicker/Library_Game",
@@ -35,20 +37,29 @@ namespace Portfolio
                 new ProjectImages(
                     1,
                     "/pictures/finshark/finsharkhome.png",
-                    "Test1"),
+                    "Home Page"),
                 new ProjectImages(
                     1,
                     "/pictures/finshark/finsharksearch.png",
-                    "Test2"),
+                    "Search Page"),
                 new ProjectImages(
                     1,
                     "/pictures/finshark/finsharkcompanyprofile.png",
-                    ""),
+                    "Company Page"),
 
                 new ProjectImages(
                     2,
                     "/pictures/dewey/deweygamesort.png",
-                    "Test3")
+                    "Sort the callnumbers game"),
+                new ProjectImages(
+                    2,
+                    "/pictures/dewey/deweygame2.png",
+                    "Match the column game"),
+                new ProjectImages(
+                    2,
+                    "/pictures/dewey/deweydifficultyselection.png",
+                    "Difficulty Selection")
+
             };
         }
 
